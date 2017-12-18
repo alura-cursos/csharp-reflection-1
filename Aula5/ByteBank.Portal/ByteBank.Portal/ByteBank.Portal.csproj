@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{59802278-1430-4639-BF96-41A659363F0F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ByteBank.Portal</RootNamespace>
+    <AssemblyName>ByteBank.Portal</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\CambioController.cs" />
+    <Compile Include="Infraestrutura\Binding\ActionBinder.cs" />
+    <Compile Include="Infraestrutura\Binding\ActionBindInfo.cs" />
+    <Compile Include="Infraestrutura\Binding\ArgumentoNomeValor.cs" />
+    <Compile Include="Infraestrutura\ControllerBase.cs" />
+    <Compile Include="Infraestrutura\ManipuladorRequisicaoArquivo.cs" />
+    <Compile Include="Infraestrutura\ManipuladorRequisicaoController.cs" />
+    <Compile Include="Infraestrutura\Utilidades.cs" />
+    <Compile Include="Infraestrutura\WebApplication.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\css\styles.css" />
+    <EmbeddedResource Include="Assets\js\main.js" />
+    <EmbeddedResource Include="View\Cambio\MXN.html" />
+    <EmbeddedResource Include="View\Cambio\USD.html" />
+    <EmbeddedResource Include="View\Cartoes\Credito.html" />
+    <EmbeddedResource Include="View\Cartoes\Debito.html" />
+    <EmbeddedResource Include="View\Home\Index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ByteBank.Service\ByteBank.Service.csproj">
+      <Project>{9eebac18-7aed-45a5-b7de-e081f372ba82}</Project>
+      <Name>ByteBank.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\Cambio\Calculo.html" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
